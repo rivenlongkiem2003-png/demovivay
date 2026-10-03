@@ -1,0 +1,28 @@
+{
+  "name": "vivay",
+  "private": true,
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "hono": "^4.13.12",
+    "pg": "^8.21.0",
+    "prisma": "^7.8.0"
+  },
+  "scripts": {
+    "start": "node server-local.cjs",
+    "postinstall": "prisma generate",
+    "build": "npm run lint && prisma generate",
+    "supabase:migrate": "prisma migrate deploy",
+    "lint": "node scripts/lint.js",
+    "test": "node --test test/**/*.test.js",
+    "test:api": "node --test test/api.integration.test.js",
+    "test:security": "node --test test/security.test.js",
+    "secret:scan": "node scripts/secret-scan.js"
+  },
+  "devDependencies": {}
+}
